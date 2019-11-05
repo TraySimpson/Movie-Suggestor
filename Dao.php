@@ -35,6 +35,18 @@ class Dao {
         }
     }
 
+    public function checkEmail($email) {
+        $conn = $this->getConnection();
+        $this->initUser();
+        try {
+            return $conn->query("select * from user where email={$email}", PDO::FETCH_ASSOC);
+        } catch(Exception $e) {
+            $this->logger->LogError($e);
+            echo print_r($e,1);
+            exit;
+        }
+    }
+
     public function getUser($email, $password) {
         $conn = $this->getConnection();
         $this->initUser();

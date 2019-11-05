@@ -27,7 +27,7 @@ if (isset($_SESSION['message'])) {
    echo "<div class='message bad'>{$_SESSION['message']}</div>";
 }
 ?>
-    <form method="POST" action="login_handler.php">
+    <form method="POST" action="signup_handler.php">
       <div>NAME</div>
       <input type="text" name="name"/>
       <div>PASSWORD</div>
