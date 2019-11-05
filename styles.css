@@ -1,0 +1,90 @@
+h1 {
+    color: white;
+    text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+body {
+    background-color: #555;
+    color: white;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+    background-color: #ffff00;
+    color: #111;
+  }
+
+.active:hover {
+  color:white;
+}
+
+.banner {
+    height: 70px;
+    overflow: hidden;
+}
+
+.title {
+}
+.input {
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#right {
+    float: right;
+}
+
+.foot {
+  position: fixed;
+  width: 100%;
+  color:white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 1rem;
+}
+
+.tile {
+  background-color: #CCC;
+  width: 30%;
+  position: relative;
+  overflow: hidden;
+}
+
+.results {
+  position: relative;
+}
+
+#movietitle {
+  text-align: center;
+}
+
+#movieyear {
+  text-align: center;
+}
+#poster {
+  text-align: center;
+}
