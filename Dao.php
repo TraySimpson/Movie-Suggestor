@@ -16,8 +16,8 @@ class Dao {
 
     public function getConnection () {
         try{
-            // $conn = new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->pass);   
-            $conn = new PDO('mysql:host=localhost:3306;dbname=movie', 'root', '');
+            $conn = new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->pass);   
+            // $conn = new PDO('mysql:host=localhost:3306;dbname=movie', 'root', '');
             
         }
         catch(Exception $e){
