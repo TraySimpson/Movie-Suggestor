@@ -57,6 +57,7 @@ li a:hover {
     color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
+    padding: 3px;
 }
 #right {
     float: right;
@@ -77,7 +78,7 @@ li a:hover {
   display: inline-block;
   background-color: rgb(37, 37, 37);
   width: 200px;
-  height: 400px;
+  height: 370px;
   border-radius: 20px;
   border: 2px solid #CCC;
   position: relative;
@@ -95,6 +96,8 @@ li a:hover {
 
 #movietitle {
   text-align: center;
+  height: 25px;
+  font-weight: bold;
 }
 
 #movieyear {
@@ -103,4 +106,8 @@ li a:hover {
 #poster {
   width: auto;
   height: 300px;
+}
+#topper {
+  height:80px;
+  overflow: hidden;
 }

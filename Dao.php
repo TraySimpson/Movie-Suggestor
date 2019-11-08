@@ -31,13 +31,31 @@ class Dao {
         $conn = $this->getConnection();
         $this->initUser();
         try {
-            return $conn->query("select * from user where email={$email},password={$password}", PDO::FETCH_ASSOC);
+            $stmt = $conn->prepare("select * from user where email={$email},password={$password}");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $result;
         } catch(Exception $e) {
             $this->logger->LogError($e);
             echo print_r($e,1);
             exit;
         }
       }
+
+    public function getName($email) {
+        $conn = $this->getConnection();
+        $this->initUser();
+        try {
+            $stmt = $conn->prepare("select name from user where email={$email}");
+            $stmt->execute();
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            return $result;
+        } catch(Exception $e) {
+            $this->logger->LogError($e);
+            echo print_r($e,1);
+            exit;
+        }
+    }
 
 
     public function isValidUser($email, $password){
@@ -64,8 +82,8 @@ class Dao {
     }
 
       public function createUser ($email, $password, $name) {
-        $this->logger->LogInfo("Creating user [{$email} - {$password} - {$name}]");
         $conn = $this->getConnection();
+        $this->logger->LogInfo("Creating user [{$email} - {$password} - {$name}]");
         $this->initUser();
         $saveQuery = "insert into user (email,password,name) values (:email,:password,:name)";
         $q = $conn->prepare($saveQuery);
@@ -87,8 +105,13 @@ class Dao {
       }
 
       public function initUser (){
-          $query = "CREATE TABLE IF NOT EXISTS user (email varchar(256) NOT NULL PRIMARY KEY, 
-          password varchar(64) NOT NULL, name varchar (64));";
+        $conn = $this->getConnection();
+        $this->logger->LogInfo("Calling initUser: Start");
+        $query = "CREATE TABLE IF NOT EXISTS user (email varchar(256) NOT NULL PRIMARY KEY, 
+        password varchar(64) NOT NULL, name varchar (64));";
+        $q = $conn->prepare($query);
+        $q->execute();
+        $this->logger->LogInfo("Calling initUser: Finish");
       }
 }
 ?>

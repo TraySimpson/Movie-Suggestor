@@ -16,10 +16,10 @@ $check = $dao->checkEmail($username);
 if(isset($check) && $check==""){
     try {
         $dao->createUser($username,$password,$name);
-        $user = $dao->getUser($username,$password);
         $_SESSION['logged_in'] = true;
-        $_SESSION['name'] = $user;
-        $logger->LogInfo("User login successful [{$username}]");
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $username;
+        $logger->LogInfo("User creation successful [{$username}]");
         header("Location: mymovies.php");
         exit;
     } catch(Exception $e) {
@@ -33,3 +33,5 @@ if(isset($check) && $check==""){
     header("Location: signup.php");
     exit;
 }
+
+?>

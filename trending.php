@@ -21,8 +21,7 @@
         <li><a href="mymovies.php">My Movies</a></li>
         <li><a id="right" href="login.php">Log in/Sign up</a></li>
       </ul>
-      <p>
-          Trending movies will go here! (Stretch goal)
+      <p>Trending movies will go here! (Stretch goal)
       </p>
 </body>
 <?php include("footer.php"); ?>

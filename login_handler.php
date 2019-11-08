@@ -7,6 +7,7 @@ $logger = new KLogger ( "log.txt" , KLogger::WARN );
 $username = $_POST['login'];
 $password = $_POST['password'];
 $valid = $dao->isValidUser($username, $password);
+$name = $dao->getName($username);
 
 //Fix this using the database
 // if ($username == "jeff" && $password == "123") {
@@ -18,7 +19,8 @@ $_SESSION = array();
 if ($valid) {
    $user = $dao->getUser($username,$password);
    $_SESSION['logged_in'] = true;
-   $_SESSION['name'] = $user;
+   $_SESSION['name'] = $name;
+   $_SESSION['email'] = $username;
    $logger->LogInfo("User login successful [{$username}]");
    header("Location: mymovies.php");
    exit;

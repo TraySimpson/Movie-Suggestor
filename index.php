@@ -54,8 +54,8 @@
 
             foreach ($result['Search'] as $movie) {
                 echo '<div class="tile">';
-                echo '<p id="movietitle">',$movie['Title'],'</p>';
-                echo '<p id="movieyear">',$movie['Year'],'</p>';
+                echo '<div id="topper"><p id="movietitle">',$movie['Title'],'</p>';
+                echo '<p id="movieyear">',$movie['Year'],'</p></div>';
                 echo '<div class ="img_cont"><img id="poster" src="',$movie['Poster'],'"></img></div>';
                 echo '</div>';
 
