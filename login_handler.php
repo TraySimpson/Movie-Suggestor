@@ -2,6 +2,7 @@
 session_start();
 require_once 'KLogger.php';
 require_once 'Dao.php';
+$dao = new Dao();
 $logger = new KLogger ( "log.txt" , KLogger::WARN );
 $username = $_POST['login'];
 $password = $_POST['password'];

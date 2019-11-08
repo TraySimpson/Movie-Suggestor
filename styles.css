@@ -1,17 +1,18 @@
 h1 {
     color: white;
     text-align: center;
+    background-color: #040404;
 }
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #040404;
 }
 
 body {
-    background-color: #555;
+    background-color: #111;
     color: white;
 }
 
@@ -20,20 +21,25 @@ li {
 }
 
 li a {
+  background-color: #040404;
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border-radius: 20px;
+  border: 2px solid #121212;
+
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #111;
+  background-color: #333;
 }
 
 .active {
     background-color: #ffff00;
+    border: 0px solid #ffff00;
     color: #111;
   }
 
@@ -46,11 +52,11 @@ li a:hover {
     overflow: hidden;
 }
 
-.title {
-}
+
 .input {
     color: aliceblue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 #right {
     float: right;
@@ -68,14 +74,23 @@ li a:hover {
 }
 
 .tile {
-  background-color: #CCC;
-  width: 30%;
+  display: inline-block;
+  background-color: rgb(37, 37, 37);
+  width: 200px;
+  height: 400px;
+  border-radius: 20px;
+  border: 2px solid #CCC;
   position: relative;
   overflow: hidden;
+  margin: 4px;
 }
 
 .results {
   position: relative;
+}
+
+.img_cont {
+  text-align: center;
 }
 
 #movietitle {
@@ -86,5 +101,6 @@ li a:hover {
   text-align: center;
 }
 #poster {
-  text-align: center;
+  width: auto;
+  height: 300px;
 }

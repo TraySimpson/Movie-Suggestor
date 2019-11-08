@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
 ?>
 
 <html>
@@ -21,7 +21,16 @@ session_start();
         <li><a class="active" href="mymovies.php">My Movies</a></li>
         <li><a id="right" href="login.php">Log in/Sign up</a></li>
     </ul>
+    <?php
+        echo "Hi ",_session('name'),",";
+    ?>
     <a>Here's your saved movies!</a>
   </body>
   <?php include("footer.php"); ?>
 </html>
+
+<?php
+function _session($Var, $Default=''){
+    return (isset($_SESSION['form_data'][$Var]) === TRUE ? $_SESSION['form_data'][$Var] : $Default);
+}
+?>

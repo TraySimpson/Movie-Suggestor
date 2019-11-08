@@ -21,7 +21,7 @@
         <li><a href="mymovies.php">My Movies</a></li>
         <li><a id="right" href="login.php">Log in/Sign up</a></li>
     </ul>
-    
+        <div class="input">
         <form action="input_handler.php" method="post">
             <div>What kind of movie do you want?</div>
             <input value="<?php echo _session('keyword') ?>" type="text" name="keyword">
@@ -29,6 +29,7 @@
             <input value="<?php echo _session('drunk',0) ?>" type="range" min="0" max="10" name="drunk">
             <input type="submit">
         </form>
+        </div>
         <div class="results"> 
         <?php
         // if (isset($_SESSION['messages'])) {
@@ -38,7 +39,6 @@
         // }
 
         if(isset($_SESSION['keyword']) && $_SESSION['keyword']!=""){
-            echo("Here you go!");
             $url = "http://www.omdbapi.com/?apikey=ec8c2034&s=".$_SESSION['keyword'];
        
             $client = curl_init($url);
@@ -56,7 +56,7 @@
                 echo '<div class="tile">';
                 echo '<p id="movietitle">',$movie['Title'],'</p>';
                 echo '<p id="movieyear">',$movie['Year'],'</p>';
-                echo '<img id="poster" src="',$movie['Poster'],'"></img>';
+                echo '<div class ="img_cont"><img id="poster" src="',$movie['Poster'],'"></img></div>';
                 echo '</div>';
 
               }
