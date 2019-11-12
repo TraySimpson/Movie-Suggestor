@@ -108,7 +108,7 @@ class Dao {
 
       public function initUser (){
         $conn = $this->getConnection();
-        $query = "CREATE TABLE IF NOT EXISTS user (email varchar(256) NOT NULL PRIMARY KEY, 
+        $query = "CREATE TABLE IF NOT EXISTS user (email varchar(254) NOT NULL PRIMARY KEY, 
         password varchar(64) NOT NULL, name varchar (64));";
         $q = $conn->prepare($query);
         $q->execute();
