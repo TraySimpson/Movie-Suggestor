@@ -3,10 +3,10 @@
 require_once 'KLogger.php';
 
 class Dao {
-    // private $host = "us-cdbr-iron-east-05.cleardb.net";
-    // private $db = "heroku_e10210ca9b1bc08";
-    // private $user = "baf94a696bb20e";
-    // private $pass = "f0ab2de4";
+    private $host = "us-cdbr-iron-east-05.cleardb.net";
+    private $db = "heroku_e10210ca9b1bc08";
+    private $user = "baf94a696bb20e";
+    private $pass = "f0ab2de4";
 
     private $logger;
 
