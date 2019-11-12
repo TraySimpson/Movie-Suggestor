@@ -3,10 +3,10 @@
 require_once 'KLogger.php';
 
 class Dao {
-    private $host = "us-cdbr-iron-east-05.cleardb.net";
-    private $db = "heroku_550c0031a39aae3";
-    private $user = "b5c787ba788faa";
-    private $pass = "6d3d8f03";
+    // private $host = "us-cdbr-iron-east-05.cleardb.net";
+    // private $db = "heroku_550c0031a39aae3";
+    // private $user = "b5c787ba788faa";
+    // private $pass = "6d3d8f03";
 
     private $logger;
 
@@ -16,7 +16,8 @@ class Dao {
 
     public function getConnection () {
         try{
-            $conn = new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->pass);   
+            // $conn = new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->pass);   
+            $conn = new PDO('mysql:host=us-cdbr-iron-east-05.cleardb.net;dbname=heroku_550c0031a39aae3','b5c787ba788faa','6d3d8f03');   
             // $conn = new PDO('mysql:host=localhost:3306;dbname=movie', 'root', '');
             
         }

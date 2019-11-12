@@ -29,7 +29,7 @@ if(isset($check) && $check==""){
     }
 } else {
     $logger->LogWarn("User creation failed [{$username}]");
-    $_SESSION['message'] = "Invalid credentials";
+    $_SESSION['message'] = "Email already in use";
     header("Location: signup.php");
     exit;
 }
