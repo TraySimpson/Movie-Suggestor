@@ -16,8 +16,8 @@ class Dao {
 
     public function getConnection () {
         try{
-            $conn = new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->pass);   
-            // $conn = new PDO('mysql:host=localhost:3306;dbname=movie', 'root', '');
+            // $conn = new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->pass);   
+            $conn = new PDO('mysql:host=localhost:3306;dbname=movie', 'root', '');
             
         }
         catch(Exception $e){
@@ -31,10 +31,10 @@ class Dao {
         $conn = $this->getConnection();
         $this->initUser();
         try {
-            $stmt = $conn->prepare("select * from user where email={$email},password={$password}");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            return $result;
+            $stmt = $conn->prepare("SELECT * FROM user WHERE email = :email AND password =:password");
+            $stmt->execute(['email' => $email, 'password' => $password]);
+            $user = $stmt->fetch();
+            return $user;
         } catch(Exception $e) {
             $this->logger->LogError($e);
             echo print_r($e,1);
@@ -46,9 +46,9 @@ class Dao {
         $conn = $this->getConnection();
         $this->initUser();
         try {
-            $stmt = $conn->prepare("select name from user where email={$email}");
-            $stmt->execute();
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt = $conn->prepare("select name from user where email= :email");
+            $stmt->execute(['email' => $email]);
+            $result = $stmt->fetch();
             return $result;
         } catch(Exception $e) {
             $this->logger->LogError($e);
@@ -62,6 +62,7 @@ class Dao {
         $conn = $this->getConnection();
         $this->initUser();
         $check = $this->getUser($email,$password);
+        $this->logger->LogInfo("Checking valid user [{$email} - {$password} - {$check}]");
         if(isset($check) && $check!=""){
             return true;
         } else {
@@ -101,17 +102,15 @@ class Dao {
         $q = $conn->prepare($deleteQuery);
         $q->bindParam(":email", $email);
         $q->execute();
-        $this->logger->LogInfo("Removed user  [{$email}]");
+        $this->logger->LogInfo("Removed user [{$email}]");
       }
 
       public function initUser (){
         $conn = $this->getConnection();
-        $this->logger->LogInfo("Calling initUser: Start");
         $query = "CREATE TABLE IF NOT EXISTS user (email varchar(256) NOT NULL PRIMARY KEY, 
         password varchar(64) NOT NULL, name varchar (64));";
         $q = $conn->prepare($query);
         $q->execute();
-        $this->logger->LogInfo("Calling initUser: Finish");
       }
 }
 ?>

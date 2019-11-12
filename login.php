@@ -23,6 +23,9 @@ session_start();
     </ul>
 
 <?php
+if( _session('logged_in')){
+    header("Location: logout.php");
+} 
 if (isset($_SESSION['message'])) {
    echo "<div class='message bad'>{$_SESSION['message']}</div>";
 }
@@ -38,3 +41,10 @@ if (isset($_SESSION['message'])) {
   </body>
   <?php include("footer.php"); ?>
 </html>
+
+
+<?php
+function _session($Var, $Default=''){
+    return (isset($_SESSION[$Var]) === TRUE ? $_SESSION[$Var] : $Default);
+}
+?>

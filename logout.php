@@ -1,9 +1,9 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <html>
-<header><title>My movies</title></header>
+<header><title>Login</title></header>
 <head>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,20 +18,23 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="trending.php">Trending</a></li>
         <li><a href="new.php">New</a></li>
-        <li><a class="active" href="mymovies.php">My Movies</a></li>
-        <li><a id="right" href="login.php">Log in/Sign up</a></li>
+        <li><a href="mymovies.php">My Movies</a></li>
+        <li><a class="active" id="right" href="login.php">Log in/Sign up</a></li>
     </ul>
-    <?php
-        if( _session('logged_in')){
-            echo "Hi ",_session('name')[0],"! ";
-            echo "Here's your saved movies!";
-        } else {
-            echo '<a href="login.php">Log in</a> to see saved movies';
-        }
-    ?>
+
+<?php
+
+if( _session('logged_in')){
+    echo '<a href="logout_handler.php">Log out</a>';
+} else {
+    header("Location: login.php");
+}
+
+?>
   </body>
   <?php include("footer.php"); ?>
 </html>
+
 
 <?php
 function _session($Var, $Default=''){

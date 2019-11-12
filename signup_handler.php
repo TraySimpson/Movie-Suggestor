@@ -17,7 +17,7 @@ if(isset($check) && $check==""){
     try {
         $dao->createUser($username,$password,$name);
         $_SESSION['logged_in'] = true;
-        $_SESSION['name'] = $name;
+        $_SESSION['name'] = $name = $dao->getName($username);
         $_SESSION['email'] = $username;
         $logger->LogInfo("User creation successful [{$username}]");
         header("Location: mymovies.php");

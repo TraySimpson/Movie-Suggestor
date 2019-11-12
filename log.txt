@@ -1,57 +1,25 @@
-now - INFO  --> Creating user [jeff - jeff - jeff] 
-now - INFO  --> Successful   [jeff - jeff - jeff] 
+now - INFO  --> Checking valid user [jeff - jeff - ] 
 now - WARN  --> User login failed [jeff] 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Creating user [jeff - jeff - jeff] 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Creating user [jeff - jeff - jeff] 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Creating user [jeff - jeff - jeff] 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Successful   [jeff - jeff - jeff] 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
+now - INFO  --> Checking valid user [trasd - asdf - ] 
+now - WARN  --> User login failed [trasd] 
+now - INFO  --> Checking valid user [jeff - jeff - ] 
 now - WARN  --> User login failed [jeff] 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
-now - INFO  --> Calling initUser: Start 
-now - INFO  --> Calling initUser: Finish 
+now - INFO  --> Checking valid user [sad - asf - ] 
+now - WARN  --> User login failed [sad] 
+now - INFO  --> Checking valid user [jeff - jeff - Array] 
+now - INFO  --> Checking valid user [asdf - asdga - ] 
+now - WARN  --> User login failed [asdf] 
+now - INFO  --> Checking valid user [jeff - jeff - Array] 
+now - INFO  --> Checking valid user [jeff - jeff - Array] 
+now - INFO  --> Checking valid user [jeff - jeff - Array] 
+now - INFO  --> Checking valid user [jeff - pass - ] 
+now - WARN  --> User login failed [jeff] 
+now - INFO  --> Checking valid user [jeff - jeff - Array] 
+now - INFO  --> Creating user [test - tester - tom] 
+now - INFO  --> Successful   [test - tester - tom] 
+now - INFO  --> Checking valid user [tom - tester - ] 
+now - WARN  --> User login failed [tom] 
+now - INFO  --> Checking valid user [test - tester - Array] 
+now - INFO  --> Creating user [tucker - pass - tuck] 
+now - INFO  --> Successful   [tucker - pass - tuck] 
+now - INFO  --> Checking valid user [tucker - pass - Array] 

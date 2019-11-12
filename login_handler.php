@@ -6,13 +6,11 @@ $dao = new Dao();
 $logger = new KLogger ( "log.txt" , KLogger::WARN );
 $username = $_POST['login'];
 $password = $_POST['password'];
+$valid = false;
 $valid = $dao->isValidUser($username, $password);
 $name = $dao->getName($username);
 
-//Fix this using the database
-// if ($username == "jeff" && $password == "123") {
-//   $valid = true;
-// }
+
 
 $logger->LogDebug("Clearing the session array");
 $_SESSION = array();
