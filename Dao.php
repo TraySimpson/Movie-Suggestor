@@ -96,6 +96,30 @@ class Dao {
         $this->logger->LogInfo("Successful   [{$email} - {$password} - {$name}]");
       }
 
+      public function saveMovie ($email, $movieID) {
+        $conn = $this->getConnection();
+        $this->logger->LogInfo("Saving movie [{$email} - {$movieID}]");
+        $saveQuery = "insert into mymovies (user,movie) values (:email,:movie)";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":email", $email);
+        $q->bindParam(":movie", $movieID);
+        $q->execute();
+      }
+
+      public function getMovies($email) {
+        $conn = $this->getConnection();
+        try {
+            $stmt = $conn->prepare("SELECT * FROM mymovie WHERE user = :email");
+            $stmt->execute(['email' => $email]);
+            $user = $stmt->fetch();
+            return $user;
+        } catch(Exception $e) {
+            $this->logger->LogError($e);
+            echo print_r($e,1);
+            exit;
+        }
+      }
+
       public function deleteComment ($email) {
         $conn = $this->getConnection();
         $this->logger->LogInfo("Removing user [{$email}]");
