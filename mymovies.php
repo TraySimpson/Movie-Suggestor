@@ -1,6 +1,8 @@
 <?php
     session_start();
     require_once 'Dao.php';
+    require_once 'KLogger.php';
+    $logger = new KLogger ( "log.txt" , KLogger::WARN );
     $dao = new Dao();
 
 ?>
@@ -35,27 +37,21 @@
         $mymovies = $dao->getMovies($_SESSION['email']);
 
         // if(isset($_SESSION['keyword']) && $_SESSION['keyword']!=""){
-        foreach ($mymovies as $mID) {
-            $url = "http://www.omdbapi.com/?apikey=ec8c2034&i=".$mID;
-            $client = curl_init($url);
-            curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-            $response = curl_exec($client);
+        // foreach ($mymovies as $mID) {
+        //     $url = "http://www.omdbapi.com/?apikey=ec8c2034&i=".$mID;
+        //     $client = curl_init($url);
+        //     curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+        //     $response = curl_exec($client);
        
-            $result = json_decode($response,true);
-            
-            foreach ($result['Search'] as $movie) {
-                echo '<div class="tile">';
-                echo '<div id="topper"><p id="movietitle">',$movie['Title'],'</p>';
-                echo '<p id="movieyear">',$movie['Year'],'</p></div>';
-                echo '<div class ="img_cont"><img id="poster" src="',$movie['Poster'],'"></img></div>';
-                echo '</div>';
+        //     $result = json_decode($response,true);
 
-              }
-        }
-       
-            
+        //         echo '<div class="tile">';
+        //         echo '<div id="topper"><p id="movietitle">',$result['Title'],'</p>';
+        //         echo '<p id="movieyear">',$result['Year'],'</p></div>';
+        //         echo '<div class ="img_cont"><img id="poster" src="',$result['Poster'],'"></img></div>';
+        //         echo '</div>';
 
-          }
+        // }
     
     ?>
   </body>
