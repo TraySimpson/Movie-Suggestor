@@ -9,7 +9,7 @@ session_start();
 </head>
 <body>
     <div class="banner">
-        <a href="index.html">
+        <a href="index.php">
             <img src="logo.png" alt="Movie Suggestor">
             <h1 class="title">Movie Suggestor</h1>
         </a>

@@ -6,10 +6,12 @@
 <header><title>Home</title></header>
 <head>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="tileFX.js"></script>
 </head>
 <body>
     <div class="banner">
-        <a href="index.html">
+        <a href="index.php">
             <img src="logo.png" alt="Movie Suggestor">
             <h1 class="title">Movie Suggestor</h1>`
         </a>
@@ -39,27 +41,30 @@
         // }
 
         if(isset($_SESSION['keyword']) && $_SESSION['keyword']!=""){
-            $url = "http://www.omdbapi.com/?apikey=ec8c2034&s=".$_SESSION['keyword'];
+            $url = "http://www.omdbapi.com/?apikey=ec8c2034&s=".$_SESSION['keyword']."&page=".$_SESSION['offset'];
        
             $client = curl_init($url);
             curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
             $response = curl_exec($client);
        
             $result = json_decode($response,true);
-            //echo "<tr><td>Title:</td><td>$result</td></tr>";
-            // echo "<tr><td>Year:</td><td>$movie->Year</td></tr>";
-            // echo "<tr><td>Poster:</td><td>$movie->Poster</td></tr>";
-            // print_r($result['Search']);
-            // %?
 
-            foreach ($result['Search'] as $movie) {
-                echo '<div class="tile">';
-                echo '<div id="topper"><p id="movietitle">',$movie['Title'],'</p>';
-                echo '<p id="movieyear">',$movie['Year'],'</p></div>';
-                echo '<div class ="img_cont"><img id="poster" src="',$movie['Poster'],'"></img></div>';
-                echo '</div>';
+            if(isset($result) && $result['Response'] == 'True'){
+                foreach ($result['Search'] as $movie) {
+                    if($movie['Poster'] == "N/A"){
+                        $randInd = rand(1,3);
+                        $movie['Poster'] = "movie".$randInd.".png";
+                    }
+                    echo '<div class="tile">';
+                    echo '<div id="topper"><p id="movietitle">',$movie['Title'],'</p>';
+                    echo '<p id="movieyear">',$movie['Year'],'</p></div>';
+                    echo '<div class ="img_cont"><img id="poster" src="',$movie['Poster'],'"></img></div>';
+                    echo '</div>';
+                  }
+            } else {
+                echo $result['Error'];
+            }
 
-              }
         
           }
         ?>

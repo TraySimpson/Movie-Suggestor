@@ -4,7 +4,6 @@
     require_once 'KLogger.php';
     $logger = new KLogger ( "log.txt" , KLogger::WARN );
     $dao = new Dao();
-
 ?>
 
 <html>
@@ -14,7 +13,7 @@
 </head>
 <body>
     <div class="banner">
-        <a href="index.html">
+        <a href="index.php">
             <img src="logo.png" alt="Movie Suggestor">
             <h1 class="title">Movie Suggestor</h1>
         </a>
@@ -28,30 +27,30 @@
     </ul>
     <?php
         if( _session('logged_in')){
-            echo "Hi ",_session('name')[0],"! ";
-            echo "Here's your saved movies!";
+            echo "<div>Hi ",_session('name')[0],"! ";
+            echo "Here's your saved movies!</div>";
+            $mymovies = $dao->getMovies($_SESSION['email']); 
         } else {
             echo '<a href="login.php">Log in</a> to see saved movies';
         }
+        // echo $mymovies;
 
-        $mymovies = $dao->getMovies($_SESSION['email']);
+    //     if(isset($mymovies) && $mymovies != ""){
+    //     foreach ($mymovies as $temp) {
 
-        // if(isset($_SESSION['keyword']) && $_SESSION['keyword']!=""){
-        // foreach ($mymovies as $mID) {
-        //     $url = "http://www.omdbapi.com/?apikey=ec8c2034&i=".$mID;
-        //     $client = curl_init($url);
-        //     curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-        //     $response = curl_exec($client);
-       
-        //     $result = json_decode($response,true);
+    //         $url = "http://www.omdbapi.com/?apikey=ec8c2034&i=".$temp;
+    //         $client = curl_init($url);
+    //         curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+    //         $response = curl_exec($client);
+    //         $result = json_decode($response,true);
 
-        //         echo '<div class="tile">';
-        //         echo '<div id="topper"><p id="movietitle">',$result['Title'],'</p>';
-        //         echo '<p id="movieyear">',$result['Year'],'</p></div>';
-        //         echo '<div class ="img_cont"><img id="poster" src="',$result['Poster'],'"></img></div>';
-        //         echo '</div>';
-
-        // }
+    //             echo '<div class="tile">';
+    //             echo '<div id="topper"><p id="movietitle">',$result['Title'],'</p>';
+    //             echo '<p id="movieyear">',$result['Year'],'</p></div>';
+    //             echo '<div class ="img_cont"><img id="poster" src="',$result['Poster'],'"></img></div>';
+    //             echo '</div>';
+    //     }
+    // }
     
     ?>
   </body>

@@ -16,10 +16,7 @@ class Dao {
 
     public function getConnection () {
         try{
-            // $conn = new PDO("mysql:host={$this->host};dbname={$this->db}",$this->user,$this->pass);   
-            $conn = new PDO('mysql:host=us-cdbr-iron-east-05.cleardb.net:3306;dbname=heroku_550c0031a39aae3','b5c787ba788faa','6d3d8f03');   
-            // $conn = new PDO('mysql:host=localhost:3306;dbname=movie', 'root', '');
-            
+            $conn = new PDO('mysql:host=us-cdbr-iron-east-05.cleardb.net:3306;dbname=heroku_550c0031a39aae3','b5c787ba788faa','6d3d8f03');               
         }
         catch(Exception $e){
             $this->logger->LogError($e);
@@ -109,10 +106,12 @@ class Dao {
       public function getMovies($email) {
         $conn = $this->getConnection();
         try {
-            $stmt = $conn->prepare("SELECT * FROM mymovie WHERE user = :email");
+            $this->logger->LogInfo("Fetching movies [{$email}]");
+            // SELECT movie FROM mymovies WHERE user = "jeff";
+            $stmt = $conn->prepare("SELECT DISTINCT movie FROM mymovies WHERE user = :email");
             $stmt->execute(['email' => $email]);
-            $user = $stmt->fetch();
-            return $user;
+            $arr = $stmt->fetchAll(PDO::FETCH_NUM);
+            var_export($arr);
         } catch(Exception $e) {
             $this->logger->LogError($e);
             echo print_r($e,1);
